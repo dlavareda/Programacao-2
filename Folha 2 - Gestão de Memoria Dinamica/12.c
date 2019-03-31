@@ -3,11 +3,12 @@
 #include <string.h>
 #include "VetorReais.h"
 
-int main(){
-	float *x1, *x2;
-	int t1, t2, k;
-	x1 = lerVetor(&t1);
-	escreverVetor(x1, t1);
+int main()
+{
+    float *x1, *x2;
+    int t1, t2, k;
+    x1 = lerVetor(&t1);
+    escreverVetor(x1, t1);
     printf("Quantos valores quer inserir ao inicio do vector");
     scanf("%d", &k);
     x2 = lerVetor(&t2);
@@ -15,7 +16,6 @@ int main(){
     printf("\n");
     escreverVetor(x1, t1);
 }
-
 
 /*
 12. Considere as seguintes funções já implementadas (exercícios anterior):

@@ -1,20 +1,24 @@
 #include <stdio.h>
 
-typedef struct {
+typedef struct
+{
     float a;
     float b;
-}COMPLEXO;
+} COMPLEXO;
 
-void lercomplexo(float *a, float *b){
+void lercomplexo(float *a, float *b)
+{
     printf("Introduza a parte real");
     scanf("%f", a);
     printf("Inroduza a parte imaginária");
     scanf("%f", b);
 }
-void escrevercomplexo(float *a, float *b){
+void escrevercomplexo(float *a, float *b)
+{
     printf("%f + %f i", *a, *b);
 }
-int main(){
+int main()
+{
     float a, b;
     lercomplexo(&a, &b);
     escrevercomplexo(&a, &b);

@@ -1,15 +1,17 @@
 #include <stdio.h>
 
-void soma_media (int x[], int *soma, float *media){
+void soma_media(int x[], int *soma, float *media)
+{
     *soma = 0;
-    for(int i = 0; i < 9; i++)
+    for (int i = 0; i < 9; i++)
     {
         *soma = *soma + x[i];
     }
-    *media = *soma/10.0;
+    *media = *soma / 10.0;
 }
 
-int main(){
+int main()
+{
     int soma;
     float media;
     int v[10];
@@ -27,5 +29,4 @@ int main(){
 
     printf("Soma = %d\n", soma);
     printf("MEdia = %f\n", media);
-
 }

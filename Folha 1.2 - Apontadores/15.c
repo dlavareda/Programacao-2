@@ -1,10 +1,11 @@
-//15. Escreva um programa que leia dois valores para duas variáveis de tipo float e troque os seus
-//conteúdos. Deverá implementar e utilizar uma função com o seguinte cabeçalho:
+//15. Escreva um programa que leia dois valores para duas variï¿½veis de tipo float e troque os seus
+//conteï¿½dos. Deverï¿½ implementar e utilizar uma funï¿½ï¿½o com o seguinte cabeï¿½alho:
 //void trocar_float (float *x1, float *x2)
 
 #include <stdio.h>
-void trocar_float (float *, float *);
-main(){
+void trocar_float(float *, float *);
+main()
+{
 	float x1, x2;
 	printf("Introduza o primeiro float\n");
 	scanf("%f", &x1);
@@ -13,9 +14,10 @@ main(){
 
 	trocar_float(&x1, &x2);
 	printf("%f\n", x1);
-	printf("%f\n", x2);	
+	printf("%f\n", x2);
 }
-void trocar_float (float *x1, float *x2){
+void trocar_float(float *x1, float *x2)
+{
 	float tmp;
 	tmp = *x1;
 	*x1 = *x2;
