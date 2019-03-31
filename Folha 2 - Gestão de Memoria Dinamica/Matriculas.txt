@@ -1,0 +1,140 @@
+12931
+2018
+Informatica Web
+16.81
+13880
+2015
+Informatica Web
+15.93
+15756
+2017
+Engenharia Informatica
+15.71
+19772
+2018
+Bioengenharia
+11.75
+14022
+2018
+Bioengenharia
+15.54
+12001
+2017
+Bioengenharia
+15.82
+13173
+2017
+Informatica Web
+13.82
+19429
+2015
+Engenharia Informatica
+14.41
+10951
+2015
+Informatica Web
+12.19
+12203
+2016
+Informatica Web
+12.99
+17438
+2016
+Informatica Web
+14.58
+11724
+2016
+Engenharia Informatica
+15.52
+14247
+2017
+Informatica Web
+12.81
+17543
+2016
+Bioengenharia
+12.63
+12808
+2018
+Engenharia Informatica
+16.60
+13243
+2016
+Engenharia Informatica
+11.62
+13370
+2017
+Bioengenharia
+16.86
+11330
+2017
+Bioengenharia
+11.74
+17021
+2015
+Engenharia Informatica
+15.89
+18500
+2018
+Informatica Web
+14.99
+15950
+2016
+Informatica Web
+11.49
+18412
+2017
+Informatica Web
+13.15
+10839
+2018
+Bioengenharia
+15.21
+12938
+2018
+Informatica Web
+13.58
+14269
+2015
+Engenharia Informatica
+11.10
+16221
+2016
+Bioengenharia
+11.33
+17800
+2015
+Bioengenharia
+12.69
+10256
+2016
+Bioengenharia
+16.13
+18094
+2016
+Bioengenharia
+11.56
+12490
+2016
+Engenharia Informatica
+12.05
+16649
+2017
+Engenharia Informatica
+13.86
+10058
+2018
+Informatica Web
+16.34153
+38950
+2019
+O Curso
+14.500000
+123456
+1991
+
+10.000000
+2365
+1235
+
+2.000000
