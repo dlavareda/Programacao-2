@@ -45,7 +45,7 @@ int main()
 		printf("falha");
         return -1;
 	}
-     printf("FIcheiro BInário\n");
+     printf("FIcheiro Binário\n");
     while (fread(&pb, sizeof(PESSOA), 1, fb))
 	{
        
