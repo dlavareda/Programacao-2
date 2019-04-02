@@ -13,6 +13,7 @@ int main()
     //le o ficheiro
     FILE *f;
     FILE *fb;
+    FILE *fbp;
     PESSOA p, pb;
     f = fopen("/home/dlavareda/Documents/UBI/Programação 2/programacao2/Folha 3 - Ficheiros Binários/pessoas.txt", "r");
     fb = fopen("/home/dlavareda/Documents/UBI/Programação 2/programacao2/Folha 3 - Ficheiros Binários/pessoas.bin", "wb");
@@ -21,6 +22,7 @@ int main()
         printf("falha");
         return -1;
     }
+    printf("FICHEIRO PESSOAS.TXT\n");
     while (fscanf(f, "%d%d%d%d%f%d", &p.numCC, &p.dataNasc[0], &p.dataNasc[1], &p.dataNasc[2], &p.altura, &p.peso) == 6)
     {
         printf("NUmero CC = %d\n", p.numCC);
@@ -31,7 +33,7 @@ int main()
         fwrite(&p, sizeof(PESSOA), 1, fb);
     }
 
-    close(f);
+    fclose(f);
     fclose(fb);
 
     //mostrar dados pessoas.bin
@@ -41,7 +43,7 @@ int main()
         printf("falha");
         return -1;
     }
-    printf("FIcheiro BInário\n");
+    printf("FICHEIRO BINARIO\n");
     while (fread(&pb, sizeof(PESSOA), 1, fb))
     {
 
@@ -54,7 +56,7 @@ int main()
     printf("\n");
     fclose(fb);
     //c
-    FILE *fbp;
+
     fb = fopen("/home/dlavareda/Documents/UBI/Programação 2/programacao2/Folha 3 - Ficheiros Binários/pessoas.bin", "rb");
     fbp = fopen("/home/dlavareda/Documents/UBI/Programação 2/programacao2/Folha 3 - Ficheiros Binários/datas.bin", "wb");
     if (fb == NULL || fbp == NULL)
@@ -68,24 +70,44 @@ int main()
     scanf("%d", &ano);
     printf("Introduza o Peso\n");
     scanf("%d", &peso);
-    int pos;
-    fseek(fb, 3 * sizeof(int), SEEK_CUR);
-    fread(&anofb, sizeof(int), 1, fb);
-    fseek(fb, 1 * sizeof(int), SEEK_CUR);
-    fread(&pesofb, sizeof(int), 1, fb);
-    if (anofb == ano && pesofb > peso)
+    int pos, numccfb;
+    fseek(fb, 3 * sizeof(int), SEEK_SET);          // coloca-se no primeiro ano
+    while (fread(&anofb, sizeof(int), 1, fb) == 1) //Le o ano e passa para o proximo (altura)
     {
-        printf("%d\n", anofb);
-        printf("%d\n", pesofb);
+        fseek(fb, sizeof(float), SEEK_CUR); //Salta a altura e coloca-se no peso
+        fread(&pesofb, sizeof(int), 1, fb); //Le o peso e coloca-se no CC do proximo registo
+        if (anofb == ano && pesofb > peso)
+        {
+            fseek(fb, -1 * sizeof(int), SEEK_CUR);   //retrocede para o peso
+            fseek(fb, -1 * sizeof(float), SEEK_CUR); //retrocede para a altura
+            fseek(fb, -4 * sizeof(int), SEEK_CUR);   //retrocede para o NUmCC
+            fread(&numccfb, sizeof(int), 1, fb);     //Le o CC e coloca-se no dia de nascimento
+            fseek(fb, 2 * sizeof(int), SEEK_CUR);    //coloca-se no ano
+            fseek(fb, sizeof(float), SEEK_CUR);      //coloca-se no peso
+            fseek(fb, 5 * sizeof(int), SEEK_CUR);    //coloca-se no ano do proximo registo
+
+            printf("NUm CC = %d\n", numccfb);
+            printf("PEso = %d\n", pesofb);
+            fwrite(&numccfb, sizeof(int), 1, fbp);
+            fwrite(&pesofb, sizeof(int), 1, fbp);
+        }
+        else
+        {
+            fseek(fb, 3 * sizeof(int), SEEK_CUR); //coloca-se no ano do proximo registo
+        }
     }
     fclose(fb);
     fclose(fbp);
-}
 
-/*
-c) A partir dos dados contidos no ficheiro binário “Pessoas.bin” crie o ficheiro binário
-“Datas.bin” com os Números de Cartão de Cidadão (numCC) e o Peso (peso) de todas
-as pessoas nascidas num dado Ano e que pesem mais que um dado Peso. O Ano e o
-Peso devem ser pedidos ao utilizador e inseridos por este.
-Nota: Não pode usar vetores e deve usar a função fseek (para além de outras que achar
-necessárias), e deve ler o mínimo de informação possível para atingir o objetivo proposto.*/
+    //teste
+    printf("\nFICHEIRO DATAS.BIN\n");
+    fbp = fopen("/home/dlavareda/Documents/UBI/Programação 2/programacao2/Folha 3 - Ficheiros Binários/datas.bin", "rb");
+    while (fread(&numccfb, sizeof(int), 1, fbp))
+    {
+        fread(&pesofb, sizeof(int), 1, fbp);
+        printf("Num CC = %d\n", numccfb);
+        printf("Peso = %d\n", pesofb);
+        printf("\n");
+    }
+    fclose(fbp);
+}
