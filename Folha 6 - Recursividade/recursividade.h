@@ -13,7 +13,20 @@ int indice_maior(int *x, int n){
         
     }
 }
-
+int indice_menor(int *x, int n){
+    int k;
+    if (n == 1){
+        return 0;//x[O] é o maior elemento
+    }
+    k = indice_menor(x, n-1);
+    if (x[n-1] < x[k]){
+        return n-1;
+    }else
+    {
+       return k;
+        
+    }
+}
 int *LerVectorInteirosFicheiro(char *nomeFich, int *n){
     int *x, aux;
     FILE *f;
