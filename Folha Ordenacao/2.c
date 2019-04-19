@@ -13,43 +13,31 @@ int main()
     printf("\n");
     printf("O maior elemento é %d", x[0]);
     printf("\n");
-    printf("O menor elemento é %d", x[tamx - 1]);
+    printf("O menor elemento é %d", x[tamx-1]);
     printf("\n");
     cont = 0;
-    k = tamx - 1;
-    while (k >= 0 && x[k] == x[tamx - 1])
-    {
+    k = tamx-1;
+    while(k>=0 && x[k]==x[tamx-1]){
         cont++;
         k--;
     }
-    printf("Existem %d elementos iguais ao menor elemento (%d)\n", cont, x[tamx - 1]);
+    printf("Existem %d elementos iguais ao menor elemento (%d)\n", cont, x[tamx-1]);
 
     k = 0;
     indice = 0;
     int encontrado = 0;
-    while (k <= tamx-1 && encontrado == 0)
-    {
-        if (x[k] != x[k + 1])
-        {
-            indice = k + 1;
+    while(k <= tamx-1 && encontrado ==0){
+        if (x[k] != x[k+1]){
+            indice = k+1;
             encontrado = 1;
         }
-        k++;
+    k++;
+    }
+    k = 0;
+    while(k<=0 && x[k]==x[0]){
+        k--;
     }
 
-    k = 0;
-    while (k <= tamx && x[k] == x[0])
-    {
-        k++;
-        if (k == tamx)
-        {
-            printf("Não existe o 2º menor");
-        }
-        else
-        {
-            printf("O 2º maior elemento é %d", x[k]);
-        }
-    }
-    //printf("O 2º maior elemento é %d", x[indice]);
+    printf("O 2º maior elemento é %d", x[k]);
     printf("\n");
 }
