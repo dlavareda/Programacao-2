@@ -43,4 +43,41 @@ void MostrarVetorInteiros(int V[], int N)
         printf("%d  ", V[k]);
     }
     printf("\n");
+}/*
+void OrdenarSeleccao(ALUNO V[], int N)
+{
+    int k, kk, pos_menor;
+    ALUNO aux;
+    for (k = 0; k < N - 1; k++)
+    {
+        pos_menor = k;
+        for (kk = k + 1; kk < N; kk++)
+            if (V[kk].Num < V[pos_menor].Num)
+                pos_menor = kk;
+        if (pos_menor != k)
+        {
+            aux = V[pos_menor];
+            V[pos_menor] = V[k];
+            V[k] = aux;
+        }
+    }
+}*/
+void OrdenarSeleccaoint(int V[], int N)
+{
+    int k, kk, pos_menor;
+    int aux;
+    for (k = 0; k < N - 1; k++)
+    {
+        pos_menor = k;
+        for (kk = k + 1; kk < N; kk++)
+            if (V[kk] < V[pos_menor])
+                pos_menor = kk;
+        if (pos_menor != k)
+        {
+            aux = V[pos_menor];
+            V[pos_menor] = V[k];
+            V[k] = aux;
+        }
+    }
 }
+
